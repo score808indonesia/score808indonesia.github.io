@@ -286,8 +286,8 @@ img[src^="https://um.simpli.fi/"],img[src^="https://i.liadm.com/"]{display:none}
   <div class='container'>
     <h1 class='logo'>Score808<span> Indonesia</span></h1>
     <nav class='main-nav' id='main-nav'>
-      <a class='active' href='https://sportlive.candil.eu.org/'>Jadwal Live Bola</a>
-      <a href='https://sportlive.candil.eu.org/'>Live Streaming</a>
+      <a class='active' href='https://tigoals.candil.eu.org/'>Jadwal Live Bola</a>
+      <a href='https://tigoals.candil.eu.org/'>Live Streaming</a>
     </nav>
     <div class='icons'>
       <button class='icon-btn' id='menu-toggle'>&#9776;</button>
@@ -353,7 +353,7 @@ img[src^="https://um.simpli.fi/"],img[src^="https://i.liadm.com/"]{display:none}
  </main>
 <div id="jadwal-pertandingan"></div>
  <div id="liveStreamContainer">
-  <a href="https://www.youtube.com/@808footballnews" id="liveStreamBtn" target="_blank" rel="noopener noreferrer">
+  <a href="https://www.youtube.com/@CandilRiyadi/streams" id="liveStreamBtn" target="_blank" rel="noopener noreferrer">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
       <path d="M10 8.64v6.72L15.27 12 10 8.64M8 5v14l11-7L8 5z"/>
     </svg>
@@ -442,7 +442,7 @@ window.addEventListener("message", function(e) {
 //<![CDATA[
 var numfeed = 6;
 var startfeed = 0;
-var urlblog = "https://news.score808.my.id";
+var urlblog = "https://tigoals.candil.eu.org";
 var charac = 0;
 var urlprevious, urlnext;
 function postrecentv2(e,t){for(var n=e.split("<"),r=0;r<n.length;r++)-1!=n[r].indexOf(">")&&(n[r]=n[r].substring(n[r].indexOf(">")+1,n[r].length));return n=n.join(""),n=n.substring(0,t-1)}function showpost_recent_other(e){var t,n,r,a,i,s="";urlprevious="",urlnext="";for(var l=0;l<e.feed.link.length;l++)"previous"==e.feed.link[l].rel&&(urlprevious=e.feed.link[l].href),"next"==e.feed.link[l].rel&&(urlnext=e.feed.link[l].href);for(var d=0;d<numfeed&&d!=e.feed.entry.length;d++){t=e.feed.entry[d],n=t.title.$t;for(var l=0;l<t.link.length;l++)if("alternate"==t.link[l].rel){r=t.link[l].href;break}i="content"in t?t.content.$t:"summary"in t?t.summary.$t:"",a="media$thumbnail"in t?t.media$thumbnail.url:"https://3.bp.blogspot.com/-BHuXHny1kOk/VXrkSyxKCjI/AAAAAAAACas/pZLJAEUDtds/s1600/no-image.png",s+="<div class='post_recent_box'>",s+="<a href='"+r+"'><img alt='"+n+"' src='"+a+"' title='"+n+"'/></a>",s+="<h3><a href='"+r+"'>"+n+"</a></h3>",s+="<p>"+postrecentv2(i,charac)+"</p>",s+="</div>"}document.getElementById("post_recent_other").innerHTML=s,s="",s+=urlprevious?"<a href='javascript:navigasifeed(-1);' class='previous'>❮</a>":"<span class='noactived previous'>❮</span>",s+=urlnext?"<a href='javascript:navigasifeed(1);' class='next'>❯":"<span class='noactived next'>❯</span>",s+="<a href='javascript:navigasifeed(0);' class='home'>☖</a>",document.getElementById("post_recent_feed").innerHTML=s}function navigasifeed(e){var t,n;-1==e?(t=urlprevious.indexOf("?"),n=urlprevious.substring(t)):1==e?(t=urlnext.indexOf("?"),n=urlnext.substring(t)):n="?start-index=1&max-results="+numfeed+"&orderby=published&alt=json-in-script",n+="&callback=showpost_recent_other",incluirscript(n)}function incluirscript(e){1==startfeed&&removerscript(),document.getElementById("post_recent_other").innerHTML="<div id='post_recent_load'></div>",document.getElementById("post_recent_feed").innerHTML="";var t=urlblog+"/feeds/posts/default/"+e,n=document.createElement("script");n.setAttribute("type","text/javascript"),n.setAttribute("src",t),n.setAttribute("id","postrecentlabel"),document.getElementsByTagName("head")[0].appendChild(n),startfeed=1}function removerscript(){var e=document.getElementById("postrecentlabel"),t=e.parentNode;t.removeChild(e)}onload=function(){navigasifeed(0)};
